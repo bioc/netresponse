@@ -3,7 +3,9 @@
 \title{vdp.mixt}
 \description{Accelerated variational Dirichlet process Gaussian mixture.}
 \usage{
-vdp.mixt(dat, prior.alpha = 1, prior.alphaKsi = 0.01, prior.betaKsi = 0.01, do.sort = TRUE, threshold = 1e-05, initial.K = 1, ite = Inf, implicit.noise = 0, c.max = 10, speedup = TRUE)
+vdp.mixt(dat, prior.alpha = 1, prior.alphaKsi = 0.01, prior.betaKsi =
+0.01, do.sort = TRUE, threshold = 1e-05, initial.K = 1, ite = Inf,
+implicit.noise = 0, c.max = 10, speedup = FALSE)
 }
 \arguments{
     \item{dat}{Data matrix (samples x features).}

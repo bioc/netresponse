@@ -86,7 +86,7 @@ function(dat,
 	                     # i.e. truncation parameter
                              # Candidates are chosen based on their Nc value 
                              # (larger = better). Nc = colSums(qOFz)
-           speedup = TRUE        
+           speedup = FALSE        
 	   	             # speedup: during DP, components are splitted
 			     # based on their first PCA component.
                              # To speed up, approximate by using only subset 
@@ -94,7 +94,10 @@ function(dat,
 ) {
 
 
-
+  if (speedup) {
+     speedup <- FALSE
+     warning("Speedup version is under development. Not using speedup.")
+  }
 
   #system("/home/tuli/bin/R-alpha/bin/R CMD SHLIB /path/netresponse.c")
   #dyn.load("/home/tuli/Rpackages/netresponse/netresponse/src/netresponse.so")
