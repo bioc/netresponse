@@ -252,10 +252,11 @@ for (j in 2:dim0){
     Nparams    <- Nparams[-b, -b]
     delta      <- delta[-b, -b]
     
-    # update dimensionality - NOTE: only after the network update!
-    dim <- dim - 1
-    if ( dim == 1 ) { next } # only one group left i.e. all nodes have been combined
-
+   if ( nrow(network) == 1 ) {
+     if ( verbose ) {cat("All nodes have been merged.\n")}
+     delta > Inf #indicating that no merging can be be done any more
+    }  else {
+     
     # Infinite joint costs etc with a for groups not linked to a
     # Note that for Nparams we need also a-a information    
     Nparams[a, -a] <- Nparams[-a, a] <- Inf
@@ -265,7 +266,7 @@ for (j in 2:dim0){
     delta[a, ]     <- delta[, a]     <- Inf
     
     # Compute new joint models for a and its neighborghs
-    for (i in 1:dim){
+    for (i in 1:nrow(network)){
       
       # compute combined model only if a and i are linked
       if (network[a, i] & length(c(G[[a]], G[[i]])) <= max.subnet.size){
@@ -295,7 +296,7 @@ for (j in 2:dim0){
         delta[a, i] <- delta[i, a] <- bic.joint[a, i] - bic.ind[a, i]
       }
     }
-    
+    }
   } else{
     if ( verbose ) {cat(paste('Merging completed: no groups having links any more, or no improvement possible on level', j, '\n'))}
     break

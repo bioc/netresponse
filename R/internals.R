@@ -1067,7 +1067,13 @@ split.qofz <- function(qOFz, c, new.c, dat, speedup){
   # Pick sample indices and samples corresponding to cluster c
   cluster_assignments <- apply(qOFz, 1, which.max);
   indices <- which(cluster_assignments == c);
-  component.data <- matrix(dat[indices,], length(indices))
+
+  if (length(indices) < 4) {
+     #"Component must have at least 4 samples to be splitted."
+     # -> no splitting
+     new.qOFz <- qOFz
+  } else {    
+    component.data <- matrix(dat[indices,], length(indices))
 
   # If the number of samples is high calculating PCA might take long
   # but can be approximated by using less samples:
@@ -1114,6 +1120,7 @@ split.qofz <- function(qOFz, c, new.c, dat, speedup){
   # Split this component (samples given in I1, I2) into two smaller components
   new.qOFz[ I1, c]     <- qOFz[ I1, c]
   new.qOFz[ I2, new.c] <- qOFz[ I2, c]
+  }
 
   new.qOFz
 }
