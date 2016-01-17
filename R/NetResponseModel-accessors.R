@@ -241,14 +241,11 @@ setMethod("get.dat", "NetResponseModel", function (model, subnet.id, sample = NU
 })
 
 
-#' get.subnets
-#' 
-#' List the detected subnetworks (each is a list of nodes in the corresponding
+#' @title get.subnets
+#' @description List the detected subnetworks (each is a list of nodes in the corresponding
 #' subnetwork).
-#' 
 #' @aliases get.subnets get.subnets,NetResponseModel-method
-#' @param model Output from the detect.responses function. An object of
-#' NetResponseModel class.
+#' @param model Output from the detect.responses function. An object of NetResponseModel class.
 #' @param get.names Logical. Indicate whether to return subnetwork nodes using
 #' node names (TRUE) or node indices (FALSE).
 #' @param min.size,max.size Numeric. Filter out subnetworks whose size is not
@@ -257,9 +254,7 @@ setMethod("get.dat", "NetResponseModel", function (model, subnet.id, sample = NU
 #' (mixture components) than specified here.
 #' @return A list of subnetworks.
 #' @author Leo Lahti \email{leo.lahti@@iki.fi}
-#' @references Leo Lahti et al.: Global modeling of transcriptional responses
-#' in interaction networks. Bioinformatics (2010).  See citation("netresponse")
-#' for details.
+#' @references See citation("netresponse")
 #' @keywords utilities
 #' @export
 #' @examples

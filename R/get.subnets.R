@@ -1,4 +1,4 @@
-get.subnets <- function (model, level = NULL, get.names = TRUE, stat = NULL, min.size = NULL, max.size = NULL, min.responses = NULL) {
+get.subnets.deprecated <- function (model, level = NULL, get.names = TRUE, stat = NULL, min.size = NULL, max.size = NULL, min.responses = NULL) {
 
   #  Copyright (C) 2008-2010 Leo Lahti
   #  Licence: GPL >=2
