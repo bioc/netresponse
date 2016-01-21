@@ -10,8 +10,7 @@
   min.size = 2, max.size = Inf, min.responses = 2)
 }
 \arguments{
-\item{model}{Output from the detect.responses function. An object of
-NetResponseModel class.}
+\item{model}{Output from the detect.responses function. An object of NetResponseModel class.}
 
 \item{get.names}{Logical. Indicate whether to return subnetwork nodes using
 node names (TRUE) or node indices (FALSE).}
@@ -38,9 +37,7 @@ subnetwork).
 Leo Lahti \email{leo.lahti@iki.fi}
 }
 \references{
-Leo Lahti et al.: Global modeling of transcriptional responses
-in interaction networks. Bioinformatics (2010).  See citation("netresponse")
-for details.
+See citation("netresponse")
 }
 \keyword{utilities}
 
